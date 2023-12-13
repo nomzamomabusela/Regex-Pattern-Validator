@@ -1,0 +1,12 @@
+import re
+
+arn_pattern = re.compile(r'^arn:[a-z-]+:iam::[0-9]{12}:role[:/][\w+=,/\.@-]{1,1000}$')
+
+# ARN to check
+arn_to_check = "arn:aws:iam::123456789101:role/TransferServerLoggingTestRole"
+
+# Check if the ARN matches the pattern
+if arn_pattern.match(arn_to_check):
+    print("ARN matches the pattern.")
+else:
+    print("ARN does not match the pattern.")
